@@ -15,6 +15,7 @@ jobs:
       - name: Install dependencies
         id: dependencies 
         run: |
+          cd Meetup-App
           npm i
 
       - name: Build react app
