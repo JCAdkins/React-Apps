@@ -13,7 +13,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Install dependencies
-        id: dependencies 
+        id: dependencies
         run: |
           cd Meetup-App
           npm i
@@ -23,11 +23,14 @@ jobs:
         run: |
           cd Meetup-App
           npm run build
-      
+
       - name: Install firebase cli
         id: install-firebase
         run: curl -sL https://firebase.tools | upgrade=true bash
 
       - name: Push to firebase
         id: push
-        run: firebase deploy --token ${{ secrets.FIREBASE_TOKEN }}
+
+        run: |
+          cd Meetup-App
+          firebase deploy --token ${{ secrets.FIREBASE_TOKEN }}
