@@ -1,0 +1,33 @@
+name: Build App and Deploy to Firebase
+
+#trigger on any push to the repo
+on:
+  push:
+
+jobs:
+  build-and-push:
+    runs-on: [ubuntu-18.04]
+    steps:
+      - name: Git checkout
+        id: checkout
+        uses: actions/checkout@v3
+
+      - name: Install dependencies
+        id: dependencies 
+        run: |
+          cd Meetup-App
+          npm i
+
+      - name: Build react app
+        id: build
+        run: |
+          cd Meetup-App
+          npm run build
+      
+      - name: Install firebase cli
+        id: install-firebase
+        run: curl -sL https://firebase.tools | upgrade=true bash
+
+      - name: Push to firebase
+        id: push
+        run: firebase deploy --token ${{ secrets.FIREBASE_TOKEN }}
