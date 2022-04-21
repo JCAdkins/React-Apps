@@ -20,7 +20,7 @@ jobs:
 
       - name: Build react app
         id: build
-        run: 
+        run: |
           cd Meetup-App
           npm run build
       
