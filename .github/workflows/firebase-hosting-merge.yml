@@ -12,7 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: |
-          cd ./expense_tracker_app
+          cd expense_report_app
           npm run build
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
