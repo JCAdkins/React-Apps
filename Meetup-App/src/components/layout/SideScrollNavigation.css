@@ -1,0 +1,15 @@
+.navBar {
+    padding: 0;
+}
+
+.ul {
+  list-style-type: disc;
+  margin: 0;
+  padding: 0;
+  width: 60px;
+}
+
+.li {
+  display: block;
+  background-color: #a5003f;
+}
